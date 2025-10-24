@@ -48,19 +48,29 @@ fi
 echo "Updating personal repo"
 #copy from 42 project
 rm -rf $PERSONAL_REPO/projects
-cp -ra /home/mmoras/Documents/projects $PERSONAL_REPO
+rsync -av --exclude='.git' $OFFICIAL_REPO $PERSONAL_REPO
 
-echo -e "\nUploading Personal repo"
-echo -e "-----------------------\n"
+# i=1
+# echo "Available git repositories in $PERSONAL_REPO:"
+# for dir in "$PERSONAL_REPO"/projects/*; do
+#     if [ -d "$dir/.git" ]; then
+#         echo "$i) "$dir/.git")"
+#         rm -rf $dir/.git
+#         ((i++))
+#     fi
+# done
 
-git -C $PERSONAL_REPO add --a
-git -C $PERSONAL_REPO commit -m "$COMMIT_MESSAGE"
-git -C $PERSONAL_REPO push
+# echo -e "\nUploading Personal repo"
+# echo -e "-----------------------\n"
 
-#Official repo
-echo -e "\nUploading Official repo"
-echo -e "-----------------------\n"
+# git -C $PERSONAL_REPO add --a
+# git -C $PERSONAL_REPO commit -m "$COMMIT_MESSAGE"
+# git -C $PERSONAL_REPO push
 
-git -C $REPO_DIR add --a
-git -C $REPO_DIR commit -m "$COMMIT_MESSAGE"
-git -C $REPO_DIR push
+# #Official repo
+# echo -e "\nUploading Official repo"
+# echo -e "-----------------------\n"
+
+# git -C $REPO_DIR add --a
+# git -C $REPO_DIR commit -m "$COMMIT_MESSAGE"
+# git -C $REPO_DIR push
