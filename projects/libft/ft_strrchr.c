@@ -6,7 +6,7 @@
 /*   By: mmoras@student.42heilbronn.de <mmoras>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 15:38:42 by mmoras@stud       #+#    #+#             */
-/*   Updated: 2025/10/24 19:52:55 by mmoras@stud      ###   ########.fr       */
+/*   Updated: 2025/12/08 14:49:55 by mmoras@stud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	while (s[i])
 		i++;
