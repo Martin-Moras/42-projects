@@ -6,7 +6,7 @@
 /*   By: mmoras@student.42heilbronn.de <mmoras>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:03:31 by mmoras@stud       #+#    #+#             */
-/*   Updated: 2025/10/24 22:08:24 by mmoras@stud      ###   ########.fr       */
+/*   Updated: 2025/12/08 14:03:54 by mmoras@stud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*last;
+	t_list	*next;
 
-	last = ft_lstlast(*lst);
-	while (last)
+	while (*lst != NULL)
 	{
-		ft_lstdelone(last, del);
-		last = ft_lstlast(*lst);
+		next = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = next;
 	}
+	free(*lst);
+	*lst = NULL;
 }

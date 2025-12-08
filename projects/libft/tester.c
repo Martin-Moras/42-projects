@@ -6,7 +6,7 @@
 /*   By: mmoras@student.42heilbronn.de <mmoras>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 22:06:15 by mmoras@stud       #+#    #+#             */
-/*   Updated: 2025/10/24 21:10:14 by mmoras@stud      ###   ########.fr       */
+/*   Updated: 2025/11/03 15:45:25 by mmoras@stud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,11 @@ void	ft_calloc_test(void)
 {
 }
 
+void	free_str_ptr(void *str)
+{
+	free(*((void **)str));
+}
+
 void	ft_strdup_test(void)
 {
 }
@@ -234,6 +239,10 @@ void	ft_lstnew_test(void)
 void	ft_lstadd_front_test(void)
 {
 }
+void	ft_lstclear_test(void)
+{
+	t_list lst = 
+}
 
 int	str_array_len(char *arr[])
 {
@@ -249,17 +258,19 @@ int	str_array_len(char *arr[])
 
 int	main(void)
 {
-	char input_buffer[4];
-	int input_buffer_res;
-	char *test_func_names[] = {"ft_memset_test", "ft_bzero_test",
-		"ft_memcpy_test", "ft_memmove_test", "ft_strlcpy_test",
-		"ft_strlcat_test", "ft_toupper_test", "ft_tolower_test",
-		"ft_strchr_test", "ft_strrchr_test", "ft_strncmp_test",
-		"ft_memchr_test", "ft_memcmp_test", "ft_strnstr_test", "ft_atoi_test",
-		"ft_calloc_test", "ft_strdup_test", "ft_substr_test", "ft_strjoin_test",
-		"ft_strtrim_test", "ft_split_test", "ft_itoa_test", "ft_strmapi_test",
-		"ft_putchar_fd_test", "ft_putstr_fd_test", "ft_putendl_fd_test",
-		"ft_putnbr_fd_test", "ft_lstnew_test", "ft_lstadd_front_test", NULL};
+	char	input_buffer[4];
+	int		input_buffer_res;
+	char	*test_func_names[] = {"ft_memset_test", "ft_bzero_test",
+			"ft_memcpy_test", "ft_memmove_test", "ft_strlcpy_test",
+			"ft_strlcat_test", "ft_toupper_test", "ft_tolower_test",
+			"ft_strchr_test", "ft_strrchr_test", "ft_strncmp_test",
+			"ft_memchr_test", "ft_memcmp_test", "ft_strnstr_test",
+			"ft_atoi_test", "ft_calloc_test", "ft_strdup_test",
+			"ft_substr_test", "ft_strjoin_test", "ft_strtrim_test",
+			"ft_split_test", "ft_itoa_test", "ft_strmapi_test",
+			"ft_putchar_fd_test", "ft_putstr_fd_test", "ft_putendl_fd_test",
+			"ft_putnbr_fd_test", "ft_lstnew_test", "ft_lstadd_front_test",
+			"ft_lstclear_test", NULL};
 
 	void (*test_funcs[])() = {ft_memset_test, ft_bzero_test, ft_memcpy_test,
 		ft_memmove_test, ft_strlcpy_test, ft_strlcat_test, ft_toupper_test,
@@ -268,7 +279,8 @@ int	main(void)
 		ft_calloc_test, ft_strdup_test, ft_substr_test, ft_strjoin_test,
 		ft_strtrim_test, ft_split_test, ft_itoa_test, ft_strmapi_test,
 		ft_putchar_fd_test, ft_putstr_fd_test, ft_putendl_fd_test,
-		ft_putnbr_fd_test, ft_lstnew_test, ft_lstadd_front_test, NULL};
+		ft_putnbr_fd_test, ft_lstnew_test, ft_lstadd_front_test,
+		ft_lstclear_test, NULL};
 	printf("Select test (empty = run all):\n");
 	for (int i = 0; i < str_array_len(test_func_names); i++)
 	{
